@@ -1,0 +1,33 @@
+/* 재사용 되도록 만든 scss */
+@import './color.scss';
+
+// 동일 속성을 사용하고자 할때 ->  @extend
+// 구조화 된 것 또는 function 또는 @content를 활용하기 위한 것 -> @mixin
+
+// mixin 함수처럼 사용. 인자:디폴트값 의 형태로 셋팅. 디폴트값은 안들어가도 됨
+@mixin mix-bg-opt($type:$color01) {
+    background-color: $type;
+    // .bg-type {
+    //     // &-01 {
+    //     //     background-color: $color01;
+    //     // }
+    //     // &-02 {
+    //     //     background-color: $color02;
+    //     // }
+    //     // &-03 {
+    //     //     background-color: $color03;
+    //     // }
+    //     // &-04 {
+    //     //     background-color: $color04;
+    //     // }
+    //     // &-05 {
+    //     //     background-color: $color05;
+    //     // }
+    //     // &-06 {
+    //     //     background-color: $color06;
+    //     // }
+    //     // &-07 {
+    //     //     background-color: $color07;
+    //     // }
+    // }
+}

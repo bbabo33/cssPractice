@@ -1,0 +1,12 @@
+@import './mixin.scss';
+
+.prac1 {
+    @include mix-bg-opt($color02);
+    &-title {
+        color: $color03;
+    }
+
+    &-content {
+        // @extend .bg-type-02;
+    }
+}

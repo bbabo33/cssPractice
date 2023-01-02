@@ -1,0 +1,53 @@
+@import './color.scss';
+
+.grid {
+    &-container {
+        display: grid;
+
+        min-height: 500px;
+        // Grid item이 각 cell을 이루며
+        // Grid의 행 또는 열을 track 이라 한다
+
+        /**
+        * 컨테이너에 적용하는 속성
+        * grid-template-columns -> 열(column)에 대한 크기를 지정 및 열의 배치를 지정
+        * grid-template-rows -> 행(row)에 대한 크기를 지정 및 행의 배치를 지정
+        */
+        //grid-template-columns: 100px 1fr 2fr;
+        
+        // 실습 페이지의 width는 1520px
+        // 첫 row의 고정값 100px을 제외한 1420px에서 1fr+2fr => 3fr로 1fr당 약 473px을 가짐
+        // fr은 나머지값에 대한 비율이라 보면 된다 
+        //grid-template-rows: 100px 2fr 1fr;
+
+        // auto-fill & auto-fit은 개수를 미리 정하지 않고 설정된 너비가 허용하는 한 최대한 셀을 채운다
+        grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+        grid-template-rows: repeat(auto-fill, minmax(20%, auto));
+
+        row-gap: 10px;
+        column-gap: 10px;
+
+        &--item {
+            background-color: $color02;
+
+            /**
+            * 아이템에 적용하는 속성
+            * grid-column-start -> 어느 셀에서 시작인지
+            * grid-column-end -> 어느 셀까지 적용할지
+            * grid-row-start -> 어느 셀에서 시작인지
+            * grid-row-end -> 어느 셀까지 적용할지
+            *
+            * 각 적용되는 숫자는 row 또는 column의 숫자가 아니라 
+            * grid에 그려지는 그리드 라인의 번호이다(개발자 도구에서 grid로 보면 알 수 있음)
+            */
+
+            &:nth-child(1) {
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 3;
+            }
+
+        }
+    }
+}

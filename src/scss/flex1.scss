@@ -1,0 +1,142 @@
+@import './color.scss';
+
+.divider {
+    min-height: 10px;
+}
+
+.title {
+    background-color: $color03;
+    text-align: left;
+
+}
+
+.flex1 {
+    display: flex;
+    // 주축이 x 축
+    flex-direction: row;
+
+    // 주축에 대한 요소 배치
+    justify-content: space-evenly;
+    // 교차축에 대한 즉, y축에 대한 정렬방법
+    align-items: center;
+
+    &--item {
+        background-color: $color02;
+    }
+}
+
+.flex2 {
+    min-height: 100px;
+    display: flex;
+    // 주축이 y 축
+    flex-direction: column;
+
+    // 주축에 대한 요소 배치
+    justify-content: space-evenly;
+    // 교차축에 대한 즉, x축에 대한 정렬방법
+    align-items: center;
+
+    &--item {
+        background-color: $color02;
+    }
+}
+
+.flex3 {
+    min-width: 500px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    // flex-wrap: nowrap;   // width 초과해도 한줄로
+    flex-wrap: wrap;        // 공간 크기에 따라 요소를 여러행으로 나누어 배치
+                            // 공간을 초과하면 줄내림
+
+    &--item {
+        min-width: 600px;
+    }
+}
+
+.flex4 {
+    display: flex;
+    flex-direction: row;
+
+    &--item {
+        // flex-grow는 플렉스 컨테이너 내부에서 할당받을 수 있는 공간을 상대적으로 정의하는 속성
+        // flex-grow는 block 요소에 의미가 있다
+        // 기본 기준값은 flex-basis
+        // 해당 flex container에 엮인 기준
+
+        // 실습한 페이지에서 전체 width는 1520px
+        // flex의 합은 3
+        // flex-basis로 주어진 100px의 덩어리는 3개. 1520-300 = 1220px이 남은공간
+        // 1220/3 => 407px이 flex 1당 할당 되는 값
+        // 기대값 100px / 507px / 914px
+        flex-basis: 100px;
+
+        &:nth-child(1) {
+            flex-grow: 0;
+        }
+
+        &:nth-child(2) {
+            flex-grow: 1;
+        }
+
+        &:nth-child(3) {
+            flex-grow: 2;
+        }
+    }
+}
+
+.flex5 {
+    display: flex;
+    flex-direction: row;
+
+    &--item {
+        // flex-shrink는 레이아웃을 벗어난 아이템 너비를 분배해서 줄이는 방법
+        // flex-shrink 속성은 flex-wrap이 wrap -> 영역에 따른 자동 줄바꿈인 경우 적용 안됨
+        // flex-wrap 속성을 정의하지 않거나 flex-wrap: nowrap 속성을 부여해야함
+        flex-basis: 800px;
+        flex-wrap: nowrap;
+
+        // 실습한 페이지에서 전체 width는 1520px
+        // 800px인 3개의 div로 인해 넘친 영역은 2400 - 1520 = 880px
+        // 880 / 4 => 220px이 flex 1당 줄어들 값
+        // 기대값 580 / 580 / 360
+        
+        &:nth-child(1) {
+            // 축소되지 않길 바란다면 flex-shrink: 0; 을 주어야한다
+            flex-shrink: 1; // 기본값. 무조건 줄어듬
+        }
+
+        &:nth-child(2) {
+            flex-shrink: 1;
+        }
+
+        &:nth-child(3) {
+            flex-shrink: 2;
+        }
+    }
+}
+
+.flex6 {
+    display: flex;
+    flex-direction: row;
+
+    &--item {
+        min-width: 500px;
+        // order를 통해 순서를 지정
+        // order가 동일 값이면 DOM에서 입력된 순서대로 출력
+        // order의 순서값보다는 서로 크냐 작냐로 판단됨.
+        // 따라서 1,2,3 순서대로가 권장이지만 -1, 10, 999 도 가능 
+        &:nth-child(1) {
+            order: 999;
+        }
+        
+        &:nth-child(2) {
+            order: -1;
+        }
+
+        &:nth-child(3) {
+            order: 10;
+        }
+    }
+}

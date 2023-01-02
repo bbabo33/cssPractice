@@ -1,6 +1,8 @@
 //import logo from './logo.svg';
 //import './App.css';
-import Prac1 from './prac1';
+// import Prac1 from './prac1';
+// import { Flex1Component } from './flex/flex1';
+import { FlexGridComponent } from './flex/flexGrid';
 
 function App() {
   return (
@@ -19,7 +21,7 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Prac1 />
+      <FlexGridComponent />
     </div>
   );
 }

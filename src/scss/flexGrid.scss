@@ -14,7 +14,7 @@
         * grid-template-rows -> 행(row)에 대한 크기를 지정 및 행의 배치를 지정
         */
         //grid-template-columns: 100px 1fr 2fr;
-        
+
         // 실습 페이지의 width는 1520px
         // 첫 row의 고정값 100px을 제외한 1420px에서 1fr+2fr => 3fr로 1fr당 약 473px을 가짐
         // fr은 나머지값에 대한 비율이라 보면 된다 

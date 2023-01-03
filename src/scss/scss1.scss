@@ -1,0 +1,32 @@
+// @import './color.scss';
+@import './mixin.scss';
+
+.actual {
+    &-include {
+        @include practice-content {
+            // mixin.scss 에서 가져다 쓴 @mixin practice-content에
+            // 추가하는 내용인 background-color: $color03;가 @content에 들어감
+            
+            // 컴파일 내용
+            // .actual-include {
+            //      color: red;
+            //      background-color: yellow;
+            // }
+            background-color: $color03;
+        }
+    }
+}
+
+.extend-divider {
+    // extend를 활용한 경우 변수 할당을 못하므로 정적으로 사용
+    @extend .mixin-extend-divider;
+    margin: 5px;
+}
+
+.include-divider {
+    // mixin을 활용한 경우 변수를 할당하여 동적으로 변경할 수 있음
+    @include mixin-include-divider($bgcolor: $color05) {
+        margin: 5px;
+    }
+}
+
